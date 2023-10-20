@@ -1,29 +1,21 @@
-﻿
-// trickDlg.h : ヘッダー ファイル
-//
+﻿#pragma once
 
-#pragma once
-
-
-// CTrickDlg ダイアログ
 class CTrickDlg : public CDialogEx
 {
-// コンストラクション
 public:
 	CTrickDlg(CWnd* pParent = nullptr);	// 標準コンストラクター
 
-// ダイアログ データ
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_TRICK_DIALOG };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV サポート
 
-
-// 実装
 protected:
 	HICON m_hIcon;
+	UINT_PTR m_timer;
+	int m_dir;
 
 	// 生成された、メッセージ割り当て関数
 	virtual BOOL OnInitDialog();
@@ -31,4 +23,6 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };
